@@ -8,39 +8,89 @@ people, and do not — under any circumstances — touch an admin.
 
 No panel? The game also runs entirely on the phone screen (**PLAY ANYWAYS**).
 
-| | |
-|---|---|
-| **Language** | Kotlin (no Compose, everything is a custom `View`) |
-| **Build** | Gradle 8.11.1 Kotlin DSL + Android Gradle Plugin 8.7.3 |
-| **Min / target SDK** | 26 (Android 8.0) / 35 (Android 15) |
-| **Output** | `com.example.drunkenmaksim` — a single ~2.5 MB APK, no runtime deps beyond AndroidX core |
-
 ---
 
-## Quick start
+## How to run it
+
+You need nothing installed beforehand — no JDK, no Android Studio, no SDK.
+Step 2 downloads all of it into the project folder.
+
+### Windows
+
+**1. Get the code**
 
 ```bash
 git clone https://github.com/ErickDoppler/android-game-drunken-maksim-sim.git
 cd android-game-drunken-maksim-sim
 ```
 
-**Windows**
+**2. Download the build tools** (~700 MB, one time)
 
 ```bash
 download-tools.cmd
+```
+
+**3. Build the APK**
+
+```bash
 build.cmd
 ```
 
-**Linux / macOS / WSL / Git Bash**
+**4. Install it on the phone**
+
+```bash
+build.cmd --install
+```
+
+### Linux / macOS / WSL / Git Bash
+
+**1. Get the code**
+
+```bash
+git clone https://github.com/ErickDoppler/android-game-drunken-maksim-sim.git
+cd android-game-drunken-maksim-sim
+```
+
+**2. Download the build tools** (~700 MB, one time)
 
 ```bash
 ./download-tools.sh
+```
+
+**3. Build the APK**
+
+```bash
 ./build.sh
 ```
 
-The APK lands in `dist/drunken-maksim-sim-debug.apk`. Install it with
-`build.cmd --install` / `./build.sh --install`, or copy it to the phone and
-tap it.
+**4. Install it on the phone**
+
+```bash
+./build.sh --install
+```
+
+That is it. The APK is at **`dist/drunken-maksim-sim-debug.apk`** and the app
+is on the phone.
+
+A few notes on step 4:
+
+* The phone needs **USB debugging** on (Settings → Developer options) and has
+  to be plugged in. Accept the "Allow USB debugging?" prompt on its screen.
+* No cable? Skip `--install`, copy `dist/drunken-maksim-sim-debug.apk` to the
+  phone and tap it. Android will ask you to allow installs from that app.
+* Steps 2 and 3 are separate on purpose: you only ever run step 2 once, then
+  rebuild with step 3 as often as you like.
+
+Then open the app and read [**How to play**](#how-to-play) below.
+
+---
+
+| | |
+|---|---|
+| **Language** | Kotlin (no Compose, everything is a custom `View`) |
+| **Build** | Gradle 8.11.1 Kotlin DSL + Android Gradle Plugin 8.7.3 |
+| **Min / target SDK** | 26 (Android 8.0) / 35 (Android 15) |
+| **Output** | `com.example.drunkenmaksim` — a single ~2.5 MB APK, no runtime deps beyond AndroidX core |
 
 ---
 
